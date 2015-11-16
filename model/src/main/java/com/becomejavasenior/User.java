@@ -2,7 +2,6 @@ package com.becomejavasenior;
 
 
 import java.io.Serializable;
-import java.util.*;
 
 /**
  * @author Orlov Vladislav on 15.11.2015.
@@ -11,56 +10,16 @@ public class User implements Serializable{
 
     private String login;
     private String password;
-    private Set<Role> roles;
+    private Role role;
     private String firstName;
     private String lastName;
     private String email;
     private String whiteListIP;
 
-
-    public static Map<String, User> getValidUsers(){
-
-       /* Map<String, User> validUsers = new HashMap<>();
-        validUsers.put("Administrator", new User("Administrator", "111", Roles.ADMINISTRATOR));
-        validUsers.put("Guest1", new User("Guest", "222", Roles.SUBSCRIBER));
-        validUsers.put("Guest2", new User("Guest", "333", Roles.SUBSCRIBER));
-        validUsers.put("Guest3", new User("Guest", "444", Roles.SUBSCRIBER));*/
-
-        return null;
-    }
-
-    public static List<User> getValidUsersList(){
-
-        /*List< User> validUsers = new ArrayList<>();
-        validUsers.add(new User("Administrator", "111", Roles.ADMINISTRATOR, "Andy", "Admynman", "anad@gmail.com"));
-        validUsers.add(new User("Guest1", "222", Roles.SUBSCRIBER, "Guest", "Account", "1"));
-        validUsers.add(new User("Guest2", "333", Roles.SUBSCRIBER, "Guest", "Account", "2"));
-        validUsers.add(new User("Guest3", "444", Roles.SUBSCRIBER, "Guest", "Account", "3"));*/
-
-        return null;
-    }
-
     public User() {
         firstName = "";
         lastName  = "";
     }
-
-    public User(String login, String password, Set<Role> roles) {
-        this();
-        this.login = login;
-        this.password = password;
-        this.roles = roles;
-    }
-
-    public User(String login, String password, Set<Role> roles, String firstName, String lastName, String email) {
-        this.login = login;
-        this.password = password;
-        this.roles = roles;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
 
     public String getLogin() {
         return login;
@@ -102,12 +61,12 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getWhiteListIP() {

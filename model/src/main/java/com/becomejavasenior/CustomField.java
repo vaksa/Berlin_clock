@@ -47,64 +47,19 @@ public class CustomField implements Serializable {
         this.owner = owner;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CustomField)) return false;
 
-    public static class CustomFieldType{
-        private int id;
-        private String name;
-        private Class type;
-        private String text;
+        CustomField that = (CustomField) o;
 
-        public int getId() {
-            return id;
-        }
+        return getId() == that.getId();
 
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public Class getType() {
-            return type;
-        }
-
-        public void setType(Class type) {
-            this.type = type;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
     }
 
-    private class CustomFieldValue{
-        private int id;
-        private Object value;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public void setValue(Object value) {
-            this.value = value;
-        }
+    @Override
+    public int hashCode() {
+        return getId();
     }
 }
