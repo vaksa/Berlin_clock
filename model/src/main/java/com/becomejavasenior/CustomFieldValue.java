@@ -1,9 +1,11 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomFieldValue {
+public class CustomFieldValue implements Serializable {
 
     private int id;
     private Object value;

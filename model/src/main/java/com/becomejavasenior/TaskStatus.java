@@ -5,11 +5,13 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Currency implements Serializable {
+public class TaskStatus implements Serializable {
 
     private int id;
-    private String code;
     private String name;
+
+    public TaskStatus() {
+    }
 
     public int getId() {
         return id;
@@ -17,14 +19,6 @@ public class Currency implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getName() {
@@ -38,21 +32,19 @@ public class Currency implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Currency)) return false;
+        if (!(o instanceof TaskStatus)) return false;
 
-        Currency currency = (Currency) o;
+        TaskStatus that = (TaskStatus) o;
 
-        if (getId() != currency.getId()) return false;
-        if (!getCode().equals(currency.getCode())) return false;
-        return getName().equals(currency.getName());
+        if (getId() != that.getId()) return false;
+        return !(getName() != null ? !getName().equals(that.getName()) : that.getName() != null);
 
     }
 
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + getCode().hashCode();
-        result = 31 * result + getName().hashCode();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         return result;
     }
 }

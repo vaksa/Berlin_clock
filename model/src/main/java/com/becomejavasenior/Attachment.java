@@ -1,11 +1,12 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Attachment {
+public class Attachment implements Serializable {
 
     private int id;
     private Object owner;
