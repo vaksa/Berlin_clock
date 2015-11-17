@@ -17,8 +17,7 @@ public class User implements Serializable{
     private String whiteListIP;
 
     public User() {
-        firstName = "";
-        lastName  = "";
+
     }
 
     public String getLogin() {
