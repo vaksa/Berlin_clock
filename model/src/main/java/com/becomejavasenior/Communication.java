@@ -54,13 +54,19 @@ public class Communication implements Serializable{
 
         Communication that = (Communication) o;
 
-        return getId() == that.getId();
+        if (getId() != that.getId()) return false;
+        if (getOwner() != null ? !getOwner().equals(that.getOwner()) : that.getOwner() != null) return false;
+        if (getType() != null ? !getType().equals(that.getType()) : that.getType() != null) return false;
+        return !(getValue() != null ? !getValue().equals(that.getValue()) : that.getValue() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return getId();
+        int result = getId();
+        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+        result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+        return result;
     }
-
 }

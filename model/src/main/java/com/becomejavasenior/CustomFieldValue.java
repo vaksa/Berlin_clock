@@ -31,12 +31,15 @@ public class CustomFieldValue {
 
         CustomFieldValue that = (CustomFieldValue) o;
 
-        return getId() == that.getId();
+        if (getId() != that.getId()) return false;
+        return !(getValue() != null ? !getValue().equals(that.getValue()) : that.getValue() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return getId();
+        int result = getId();
+        result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+        return result;
     }
 }

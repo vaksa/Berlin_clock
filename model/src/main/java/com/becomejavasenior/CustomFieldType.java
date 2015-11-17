@@ -49,12 +49,17 @@ public class CustomFieldType {
 
         CustomFieldType that = (CustomFieldType) o;
 
-        return getId() == that.getId();
+        if (getId() != that.getId()) return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        return !(getType() != null ? !getType().equals(that.getType()) : that.getType() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return getId();
+        int result = getId();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+        return result;
     }
 }

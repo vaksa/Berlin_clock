@@ -1,14 +1,16 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
- * @author Orlov Vladislav on 16.11.2015.
+ * @author Orlov Vladislav on 17.11.2015.
  */
-public class CommunicationType implements Serializable {
+public class DealStatus {
 
     private int id;
     private String name;
+    private boolean isFinish;
+
+    public DealStatus() {
+    }
 
     public int getId() {
         return id;
@@ -26,14 +28,23 @@ public class CommunicationType implements Serializable {
         this.name = name;
     }
 
+    public boolean isFinish() {
+        return isFinish;
+    }
+
+    public void setIsFinish(boolean isFinish) {
+        this.isFinish = isFinish;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CommunicationType)) return false;
+        if (!(o instanceof DealStatus)) return false;
 
-        CommunicationType that = (CommunicationType) o;
+        DealStatus that = (DealStatus) o;
 
         if (getId() != that.getId()) return false;
+        if (isFinish() != that.isFinish()) return false;
         return !(getName() != null ? !getName().equals(that.getName()) : that.getName() != null);
 
     }
@@ -42,6 +53,7 @@ public class CommunicationType implements Serializable {
     public int hashCode() {
         int result = getId();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (isFinish() ? 1 : 0);
         return result;
     }
 }

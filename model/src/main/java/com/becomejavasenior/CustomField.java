@@ -54,12 +54,21 @@ public class CustomField implements Serializable {
 
         CustomField that = (CustomField) o;
 
-        return getId() == that.getId();
+        if (getId() != that.getId()) return false;
+        if (getFieldType() != null ? !getFieldType().equals(that.getFieldType()) : that.getFieldType() != null)
+            return false;
+        if (getFieldValue() != null ? !getFieldValue().equals(that.getFieldValue()) : that.getFieldValue() != null)
+            return false;
+        return !(getOwner() != null ? !getOwner().equals(that.getOwner()) : that.getOwner() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return getId();
+        int result = getId();
+        result = 31 * result + (getFieldType() != null ? getFieldType().hashCode() : 0);
+        result = 31 * result + (getFieldValue() != null ? getFieldValue().hashCode() : 0);
+        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        return result;
     }
 }

@@ -8,5 +8,7 @@ import java.io.Serializable;
 public class Tag implements Serializable {
 
     private int id;
+    private String name;
+    private Object owner;
 
 }

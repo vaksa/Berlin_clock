@@ -1,16 +1,14 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
- * @author Orlov Vladislav on 16.11.2015.
+ * @author Orlov Vladislav on 17.11.2015.
  */
-public class Position implements Serializable {
+public class DealType {
 
     private int id;
     private String name;
 
-    public Position() {
+    public DealType() {
     }
 
     public int getId() {
@@ -32,12 +30,12 @@ public class Position implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Position)) return false;
+        if (!(o instanceof DealType)) return false;
 
-        Position position = (Position) o;
+        DealType dealType = (DealType) o;
 
-        if (getId() != position.getId()) return false;
-        return !(getName() != null ? !getName().equals(position.getName()) : position.getName() != null);
+        if (getId() != dealType.getId()) return false;
+        return !(getName() != null ? !getName().equals(dealType.getName()) : dealType.getName() != null);
 
     }
 

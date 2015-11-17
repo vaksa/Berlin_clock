@@ -16,9 +16,10 @@ public class Contact implements Serializable, Communicable {
     private GregorianCalendar dateOfCreate;
     private Company company;
     private Set<Communication> communications;
-    private Set<Tag> tags;
-    private Set<Attachment> attachments;
     private Set<Comment> comments;
+    private Set<Attachment> attachments;
+    private Set<Tag> tags;
+    private Set<CustomField> customFields;
 
     public Contact() {
     }
@@ -99,6 +100,14 @@ public class Contact implements Serializable, Communicable {
         this.comments = comments;
     }
 
+    public Set<CustomField> getCustomFields() {
+        return customFields;
+    }
+
+    public void setCustomFields(Set<CustomField> customFields) {
+        this.customFields = customFields;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -106,17 +115,37 @@ public class Contact implements Serializable, Communicable {
 
         Contact contact = (Contact) o;
 
-        return id == contact.id;
+        if (getId() != contact.getId()) return false;
+        if (getName() != null ? !getName().equals(contact.getName()) : contact.getName() != null) return false;
+        if (getPosition() != null ? !getPosition().equals(contact.getPosition()) : contact.getPosition() != null)
+            return false;
+        if (getOwner() != null ? !getOwner().equals(contact.getOwner()) : contact.getOwner() != null) return false;
+        if (getDateOfCreate() != null ? !getDateOfCreate().equals(contact.getDateOfCreate()) : contact.getDateOfCreate() != null)
+            return false;
+        return !(getCompany() != null ? !getCompany().equals(contact.getCompany()) : contact.getCompany() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return id;
+        int result = getId();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getPosition() != null ? getPosition().hashCode() : 0);
+        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        result = 31 * result + (getDateOfCreate() != null ? getDateOfCreate().hashCode() : 0);
+        result = 31 * result + (getCompany() != null ? getCompany().hashCode() : 0);
+        return result;
     }
 
     @Override
     public Set<Communication> getCommunications() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
