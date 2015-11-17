@@ -11,6 +11,7 @@ public class CustomField implements Serializable {
     private CustomFieldType fieldType;
     private CustomFieldValue fieldValue;
     private Object owner;
+    private Class ownerType;
 
     public CustomField() {
     }
@@ -47,6 +48,14 @@ public class CustomField implements Serializable {
         this.owner = owner;
     }
 
+    public Class getOwnerType() {
+        return ownerType;
+    }
+
+    public void setOwnerType(Class ownerType) {
+        this.ownerType = ownerType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,7 +68,8 @@ public class CustomField implements Serializable {
             return false;
         if (getFieldValue() != null ? !getFieldValue().equals(that.getFieldValue()) : that.getFieldValue() != null)
             return false;
-        return !(getOwner() != null ? !getOwner().equals(that.getOwner()) : that.getOwner() != null);
+        if (getOwner() != null ? !getOwner().equals(that.getOwner()) : that.getOwner() != null) return false;
+        return !(getOwnerType() != null ? !getOwnerType().equals(that.getOwnerType()) : that.getOwnerType() != null);
 
     }
 
@@ -69,6 +79,7 @@ public class CustomField implements Serializable {
         result = 31 * result + (getFieldType() != null ? getFieldType().hashCode() : 0);
         result = 31 * result + (getFieldValue() != null ? getFieldValue().hashCode() : 0);
         result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        result = 31 * result + (getOwnerType() != null ? getOwnerType().hashCode() : 0);
         return result;
     }
 }
