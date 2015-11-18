@@ -6,18 +6,46 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 15.11.2015.
  */
-public class User implements Serializable{
+public class User extends Person implements Serializable{
 
     private String login;
     private String password;
-    private Role role;
-    private String firstName;
-    private String lastName;
     private String email;
+    private Role role;
     private String whiteListIP;
 
     public User() {
 
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
+    }
+
+    @Override
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        super.setFirstName(firstName);
+    }
+
+    @Override
+    public String getLastName() {
+        return super.getLastName();
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        super.setFirstName(lastName);
     }
 
     public String getLogin() {
@@ -34,22 +62,6 @@ public class User implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -97,11 +109,10 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        if(lastName.equals("") & firstName.equals("")){
+        if(getLastName().equals("") & getFirstName().equals("")){
             return login;
         }else {
-            return "" + (!lastName.equals("") ? lastName + " " : "")
-                    + (!firstName.equals("") ? firstName : "");
+            return super.toString();
         }
     }
 }

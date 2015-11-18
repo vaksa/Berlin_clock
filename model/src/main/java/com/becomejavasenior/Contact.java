@@ -7,10 +7,8 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Contact implements Serializable, Communicable {
+public class Contact extends Person implements Serializable, Communicable {
 
-    private int id;
-    private String name;
     private Position position;
     private User owner;
     private GregorianCalendar dateOfCreate;
@@ -24,12 +22,34 @@ public class Contact implements Serializable, Communicable {
     public Contact() {
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public int getId() {
+        return super.getId();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public void setId(int id) {
+        super.setId(id);
+    }
+
+    @Override
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        super.setFirstName(firstName);
+    }
+
+    @Override
+    public String getLastName() {
+        return super.getLastName();
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        super.setFirstName(lastName);
     }
 
     public Position getPosition() {
@@ -76,14 +96,6 @@ public class Contact implements Serializable, Communicable {
         this.tags = tags;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Set<Attachment> getAttachments() {
         return attachments;
     }
@@ -115,8 +127,7 @@ public class Contact implements Serializable, Communicable {
 
         Contact contact = (Contact) o;
 
-        if (getId() != contact.getId()) return false;
-        if (getName() != null ? !getName().equals(contact.getName()) : contact.getName() != null) return false;
+        if (!super.equals(o)) return false;
         if (getPosition() != null ? !getPosition().equals(contact.getPosition()) : contact.getPosition() != null)
             return false;
         if (getOwner() != null ? !getOwner().equals(contact.getOwner()) : contact.getOwner() != null) return false;
@@ -129,7 +140,7 @@ public class Contact implements Serializable, Communicable {
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (super.hashCode());
         result = 31 * result + (getPosition() != null ? getPosition().hashCode() : 0);
         result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
         result = 31 * result + (getDateOfCreate() != null ? getDateOfCreate().hashCode() : 0);
@@ -144,8 +155,6 @@ public class Contact implements Serializable, Communicable {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "name='" + name + '\'' +
-                '}';
+        return super.toString() + " (Company: "+ company +", position: " + position + ")";
     }
 }
