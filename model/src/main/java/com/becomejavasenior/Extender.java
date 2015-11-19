@@ -3,7 +3,7 @@ package com.becomejavasenior;
 /**
  * @author Orlov Vladislav on 18.11.2015.
  */
-public class Extender implements Extendable {
+abstract public class Extender implements Extendable {
 
     private int id;
 

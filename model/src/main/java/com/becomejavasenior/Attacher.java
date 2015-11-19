@@ -6,10 +6,10 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 18.11.2015.
  */
-abstract public class Attacher<T extends Extendable> implements Attachable{
+abstract public class Attacher implements Attachable{
 
     private int id;
-    private T attachedTo;
+    private Extendable attachedTo;
     private static Map<Extendable, Set<Attachable>> linksToExtendableObject;
 
     public int getId() {
@@ -20,13 +20,18 @@ abstract public class Attacher<T extends Extendable> implements Attachable{
         this.id = id;
     }
 
-    public T getAttachedTo() {
+    public Extendable getAttachedTo() {
         return attachedTo;
     }
 
-    public void setAttachedTo(T attachedTo) {
+    public void setAttachedTo(Extendable attachedTo) {
         this.attachedTo = attachedTo;
     }
+
+    public Set<Attachable> getAttachedObjects(Extendable extObject){
+        return linksToExtendableObject.get(extObject);
+    }
+
 
     @Override
     public boolean equals(Object o) {

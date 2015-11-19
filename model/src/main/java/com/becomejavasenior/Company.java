@@ -66,7 +66,7 @@ public class Company implements Serializable, Communicable, Extendable {
     }
 
     public Set<Attachment> getAttachments() {
-        return attachments;
+        return this.attachments;
     }
 
     public void setAttachments(Set<Attachment> attachments) {
