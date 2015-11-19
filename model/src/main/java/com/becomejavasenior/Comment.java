@@ -5,22 +5,32 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Comment implements Serializable {
+public class Comment extends Attacher implements Serializable {
 
-    private int id;
     private Comment comment;
-    private Object owner;
-    private Class ownerType;
+    private User owner;
 
     public Comment() {
     }
 
+    @Override
     public int getId() {
-        return id;
+        return super.getId();
     }
 
+    @Override
     public void setId(int id) {
-        this.id = id;
+        super.setId(id);
+    }
+
+    @Override
+    public Extendable getAttachedTo() {
+        return super.getAttachedTo();
+    }
+
+    @Override
+    public void setAttachedTo(Extendable attachedTo) {
+        super.setAttachedTo(attachedTo);
     }
 
     public Comment getComment() {
@@ -31,20 +41,12 @@ public class Comment implements Serializable {
         this.comment = comment;
     }
 
-    public Object getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Object owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
-    }
-
-    public Class getOwnerType() {
-        return ownerType;
-    }
-
-    public void setOwnerType(Class ownerType) {
-        this.ownerType = ownerType;
     }
 
     @Override
@@ -54,20 +56,19 @@ public class Comment implements Serializable {
 
         Comment comment1 = (Comment) o;
 
-        if (getId() != comment1.getId()) return false;
+        if(!super.equals(o)) return false;
+
         if (getComment() != null ? !getComment().equals(comment1.getComment()) : comment1.getComment() != null)
             return false;
-        if (getOwner() != null ? !getOwner().equals(comment1.getOwner()) : comment1.getOwner() != null) return false;
-        return !(getOwnerType() != null ? !getOwnerType().equals(comment1.getOwnerType()) : comment1.getOwnerType() != null);
+        return !(getOwner() != null ? !getOwner().equals(comment1.getOwner()) : comment1.getOwner() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = super.hashCode();
         result = 31 * result + (getComment() != null ? getComment().hashCode() : 0);
         result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
-        result = 31 * result + (getOwnerType() != null ? getOwnerType().hashCode() : 0);
         return result;
     }
 }

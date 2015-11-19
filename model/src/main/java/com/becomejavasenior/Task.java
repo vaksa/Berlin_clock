@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Task implements Serializable{
+public class Task implements Serializable, Extendable{
 
     private int id;
     private GregorianCalendar date;

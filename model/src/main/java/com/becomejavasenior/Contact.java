@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Contact extends Person implements Serializable, Communicable {
+public class Contact extends Person implements Serializable, Communicable, Extendable {
 
     private Position position;
     private User owner;

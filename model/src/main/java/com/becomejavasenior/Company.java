@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Company implements Serializable, Communicable {
+public class Company implements Serializable, Communicable, Extendable {
 
     private int id;
     private String name;

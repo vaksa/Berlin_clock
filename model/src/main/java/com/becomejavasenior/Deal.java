@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Deal implements Serializable {
+public class Deal implements Serializable, Extendable {
 
     private int id;
     private GregorianCalendar date;

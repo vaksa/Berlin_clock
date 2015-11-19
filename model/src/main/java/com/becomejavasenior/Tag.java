@@ -5,22 +5,33 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Tag implements Serializable {
+public class Tag extends Attacher implements Serializable {
 
-    private int id;
     private String name;
-    private Object owner;
-    private Class ownerType;
+    private User owner;
 
     public Tag() {
     }
 
+
+    @Override
     public int getId() {
-        return id;
+        return super.getId();
     }
 
+    @Override
     public void setId(int id) {
-        this.id = id;
+        super.setId(id);
+    }
+
+    @Override
+    public Extendable getAttachedTo() {
+        return super.getAttachedTo();
+    }
+
+    @Override
+    public void setAttachedTo(Extendable attachedTo) {
+        super.setAttachedTo(attachedTo);
     }
 
     public String getName() {
@@ -31,20 +42,12 @@ public class Tag implements Serializable {
         this.name = name;
     }
 
-    public Object getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Object owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
-    }
-
-    public Class getOwnerType() {
-        return ownerType;
-    }
-
-    public void setOwnerType(Class ownerType) {
-        this.ownerType = ownerType;
     }
 
     @Override
@@ -54,19 +57,18 @@ public class Tag implements Serializable {
 
         Tag tag = (Tag) o;
 
-        if (getId() != tag.getId()) return false;
+        if(!super.equals(o)) return false;
+
         if (getName() != null ? !getName().equals(tag.getName()) : tag.getName() != null) return false;
-        if (getOwner() != null ? !getOwner().equals(tag.getOwner()) : tag.getOwner() != null) return false;
-        return !(getOwnerType() != null ? !getOwnerType().equals(tag.getOwnerType()) : tag.getOwnerType() != null);
+        return !(getOwner() != null ? !getOwner().equals(tag.getOwner()) : tag.getOwner() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = super.hashCode();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
-        result = 31 * result + (getOwnerType() != null ? getOwnerType().hashCode() : 0);
         return result;
     }
 }
