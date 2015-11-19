@@ -2,6 +2,7 @@ package com.becomejavasenior;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
@@ -13,6 +14,11 @@ public class Attachment extends Attacher implements Serializable {
     private byte[] data;
 
     public Attachment() {
+    }
+
+    @Override
+    public Set<Attachable> getAttachedObjects(Extendable extObject) {
+        return Attacher.getAttachedSubclassObjects(extObject, Attachment.class);
     }
 
     @Override

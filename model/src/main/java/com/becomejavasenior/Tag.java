@@ -1,6 +1,7 @@
 package com.becomejavasenior;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
@@ -11,6 +12,11 @@ public class Tag extends Attacher implements Serializable {
     private User owner;
 
     public Tag() {
+    }
+
+    @Override
+    public Set<Attachable> getAttachedObjects(Extendable extObject) {
+        return Attacher.getAttachedSubclassObjects(extObject, Tag.class);
     }
 
 

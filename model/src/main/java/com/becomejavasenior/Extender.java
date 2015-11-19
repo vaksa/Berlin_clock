@@ -1,11 +1,21 @@
 package com.becomejavasenior;
 
+import java.util.Set;
+
 /**
  * @author Orlov Vladislav on 18.11.2015.
  */
 abstract public class Extender implements Extendable {
 
     private int id;
+    private static Set<Class<Attachable>> attachableObjects;
+    static{
+        //attachableObjects.add();
+    }
+
+    public Extender() {
+
+    }
 
     public int getId() {
         return id;
@@ -13,6 +23,10 @@ abstract public class Extender implements Extendable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static void registerAttacher(Class c){
+        attachableObjects.add(c);
     }
 
     @Override
@@ -23,11 +37,12 @@ abstract public class Extender implements Extendable {
         Extender extender = (Extender) o;
 
         return getId() == extender.getId();
-
     }
 
     @Override
     public int hashCode() {
         return getId();
     }
+
+
 }

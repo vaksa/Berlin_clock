@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Options implements Serializable{
 
     private int id;
-    private int timeZone;
+    private TimeZone timeZone;
     private Currency currency;
 
     public Options() {
@@ -22,11 +22,11 @@ public class Options implements Serializable{
         this.id = id;
     }
 
-    public int getTimeZone() {
+    public TimeZone getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(int timeZone) {
+    public void setTimeZone(TimeZone timeZone) {
         this.timeZone = timeZone;
     }
 

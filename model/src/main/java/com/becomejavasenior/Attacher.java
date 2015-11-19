@@ -10,7 +10,15 @@ abstract public class Attacher implements Attachable{
 
     private int id;
     private Extendable attachedTo;
-    private static Map<Extendable, Set<Attachable>> linksToExtendableObject;
+    private static Map<Extendable, Map<Class, Set<Attachable>>> linksToExtendableObject;
+
+
+    public Attacher() {
+    }
+
+    public static Set<Attachable> getAttachedSubclassObjects(Extendable extObject, Class attachableClass){
+        return linksToExtendableObject.get(extObject).get(attachableClass);
+    }
 
     public int getId() {
         return id;
@@ -27,11 +35,6 @@ abstract public class Attacher implements Attachable{
     public void setAttachedTo(Extendable attachedTo) {
         this.attachedTo = attachedTo;
     }
-
-    public Set<Attachable> getAttachedObjects(Extendable extObject){
-        return linksToExtendableObject.get(extObject);
-    }
-
 
     @Override
     public boolean equals(Object o) {
