@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 15.11.2015.
  */
-public class User extends Person implements Serializable{
+public class User extends Person implements Serializable, Extendable{
 
     private String login;
     private String password;

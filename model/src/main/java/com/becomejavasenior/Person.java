@@ -5,9 +5,8 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 18.11.2015.
  */
-public abstract class Person implements Serializable{
+public abstract class Person extends Extender implements Serializable{
 
-    private int id;
     private String firstName;
     private String lastName;
 
@@ -15,11 +14,11 @@ public abstract class Person implements Serializable{
     }
 
     public int getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId(int id) {
-        this.id = id;
+        super.setId(id);
     }
 
     public String getFirstName() {
@@ -44,6 +43,7 @@ public abstract class Person implements Serializable{
         if (!(o instanceof Person)) return false;
 
         Person person = (Person) o;
+        if (!super.equals(o)) return false;
 
         if (getId() != person.getId()) return false;
         if (getFirstName() != null ? !getFirstName().equals(person.getFirstName()) : person.getFirstName() != null)
@@ -54,7 +54,7 @@ public abstract class Person implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = super.hashCode();
         result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
         result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
         return result;

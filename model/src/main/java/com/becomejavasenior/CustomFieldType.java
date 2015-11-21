@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomFieldType implements Serializable {
+public class CustomFieldType implements Serializable, Extendable {
 
     private int id;
     private String name;

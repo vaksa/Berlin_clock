@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Tag extends Attacher implements Serializable {
+public class Tag extends Attacher implements Serializable, Attachable {
 
     private String name;
     private User owner;

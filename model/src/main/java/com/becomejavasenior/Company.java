@@ -6,17 +6,12 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Company implements Serializable, Communicable, Extendable {
+public class Company extends Extender implements Serializable, Communicable {
 
-    private int id;
     private String name;
     private User owner;
     private Set<Contact> contacts;
     private Set<Communication> communications;
-    private Set<Attachment> attachments;
-    private Set<Comment> comments;
-    private Set<Tag> tags;
-    private Set<CustomField> customFields;
 
     public Company() {
     }
@@ -41,14 +36,6 @@ public class Company implements Serializable, Communicable, Extendable {
         this.communications = communications;
     }
 
-    public Set<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(Set<Tag> tags) {
-        this.tags = tags;
-    }
-
     public User getOwner() {
         return owner;
     }
@@ -58,35 +45,11 @@ public class Company implements Serializable, Communicable, Extendable {
     }
 
     public int getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId(int id) {
-        this.id = id;
-    }
-
-    public Set<Attachment> getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public Set<CustomField> getCustomFields() {
-        return customFields;
-    }
-
-    public void setCustomFields(Set<CustomField> customFields) {
-        this.customFields = customFields;
+        super.setId(id);
     }
 
     @Override

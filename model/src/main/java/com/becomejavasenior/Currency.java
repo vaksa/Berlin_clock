@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Currency implements Serializable {
+public class Currency implements Serializable, Extendable {
 
     private int id;
     private String code;

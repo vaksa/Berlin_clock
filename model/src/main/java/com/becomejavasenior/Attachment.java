@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Attachment extends Attacher implements Serializable {
+public class Attachment extends Attacher implements Serializable, Attachable {
 
     private User owner;
     private String pathToFile;

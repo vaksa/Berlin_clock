@@ -8,5 +8,6 @@ import java.util.Set;
 public interface Attachable {
 
     Set<Attachable> getAttachedObjects(Extendable extObject);
+    int getId();
 
 }

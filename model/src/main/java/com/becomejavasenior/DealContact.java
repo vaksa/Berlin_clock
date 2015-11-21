@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class DealContact implements Serializable {
+public class DealContact implements Serializable, Extendable {
 
     private int id;
     private Deal deal;

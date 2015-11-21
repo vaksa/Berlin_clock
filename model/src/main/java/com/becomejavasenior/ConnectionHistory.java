@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class ConnectionHistory implements Serializable {
+public class ConnectionHistory implements Serializable, Extendable {
 
     private int id;
     private GregorianCalendar date;

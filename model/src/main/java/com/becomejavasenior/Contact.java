@@ -7,17 +7,13 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Contact extends Person implements Serializable, Communicable, Extendable {
+public class Contact extends Person implements Serializable, Communicable {
 
     private Position position;
     private User owner;
     private GregorianCalendar dateOfCreate;
     private Company company;
     private Set<Communication> communications;
-    private Set<Comment> comments;
-    private Set<Attachment> attachments;
-    private Set<Tag> tags;
-    private Set<CustomField> customFields;
 
     public Contact() {
     }
@@ -86,38 +82,6 @@ public class Contact extends Person implements Serializable, Communicable, Exten
 
     public void setCommunications(Set<Communication> communications) {
         this.communications = communications;
-    }
-
-    public Set<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(Set<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public Set<Attachment> getAttachments() {
-        return attachments;
-    }
-
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public Set<CustomField> getCustomFields() {
-        return customFields;
-    }
-
-    public void setCustomFields(Set<CustomField> customFields) {
-        this.customFields = customFields;
     }
 
     @Override

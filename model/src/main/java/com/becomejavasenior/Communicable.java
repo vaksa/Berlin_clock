@@ -9,4 +9,6 @@ public interface Communicable {
 
     Set<Communication> getCommunications();
 
+    void setCommunications(Set<Communication> communications);
+
 }

@@ -6,5 +6,4 @@ package com.becomejavasenior;
 public interface Extendable {
 
 
-
 }

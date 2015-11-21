@@ -7,9 +7,8 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Task implements Serializable, Extendable{
+public class Task extends Extender implements Serializable, Extendable{
 
-    private int id;
     private GregorianCalendar date;
     private String subject;
     private User owner;
@@ -18,20 +17,16 @@ public class Task implements Serializable, Extendable{
     private Contact contact;
     private TaskStatus status;
     private TaskType type;
-    private Set<Attachment> attachments;
-    private Set<Comment> comments;
-    private Set<Tag> tags;
-    private Set<CustomField> customFields;
 
     public Task() {
     }
 
     public int getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId(int id) {
-        this.id = id;
+        super.setId(id);
     }
 
     public GregorianCalendar getDate() {
@@ -96,38 +91,6 @@ public class Task implements Serializable, Extendable{
 
     public void setType(TaskType type) {
         this.type = type;
-    }
-
-    public Set<Attachment> getAttachments() {
-        return attachments;
-    }
-
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public Set<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(Set<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public Set<CustomField> getCustomFields() {
-        return customFields;
-    }
-
-    public void setCustomFields(Set<CustomField> customFields) {
-        this.customFields = customFields;
     }
 
     @Override
