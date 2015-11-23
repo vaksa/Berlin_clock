@@ -1,7 +1,5 @@
 package com.becomejavasenior;
 
-import java.lang.reflect.Method;
-
 /**
  * @author Orlov Vladislav on 19.11.2015.
  */
@@ -9,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Method lMethod = null;
+        /*Method lMethod = null;
 
         try {
             Class clazz = Class.forName("com.becomejavasenior.Holder");
@@ -34,6 +32,6 @@ public class Main {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

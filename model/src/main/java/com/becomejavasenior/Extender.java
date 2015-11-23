@@ -66,7 +66,6 @@ abstract public class Extender implements Extendable {
         return attachments.remove(attachment);
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

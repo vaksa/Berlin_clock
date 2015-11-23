@@ -1,15 +1,13 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Communication implements Serializable, Extendable{
+public class Communication implements Extendable{
 
     private int id;
     private Communicable owner;
-    private CommunicationType type;
+    private CommunicationForm form;
     private String value;
 
     public Communication() {
@@ -31,12 +29,12 @@ public class Communication implements Serializable, Extendable{
         this.owner = owner;
     }
 
-    public CommunicationType getType() {
-        return type;
+    public CommunicationForm getType() {
+        return form;
     }
 
-    public void setType(CommunicationType type) {
-        this.type = type;
+    public void setType(CommunicationForm form) {
+        this.form = form;
     }
 
     public String getValue() {

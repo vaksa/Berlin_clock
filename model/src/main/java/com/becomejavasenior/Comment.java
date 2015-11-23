@@ -1,15 +1,16 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
+import java.util.GregorianCalendar;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Comment extends Attacher implements Serializable, Attachable {
+public class Comment extends Attacher implements Attachable {
 
     private Comment comment;
     private User owner;
+    private GregorianCalendar date;
 
     public Comment() {
     }
@@ -37,6 +38,14 @@ public class Comment extends Attacher implements Serializable, Attachable {
     @Override
     public void setAttachedTo(Extendable attachedTo) {
         super.setAttachedTo(attachedTo);
+    }
+
+    public GregorianCalendar getDate() {
+        return date;
+    }
+
+    public void setDate(GregorianCalendar date) {
+        this.date = date;
     }
 
     public Comment getComment() {

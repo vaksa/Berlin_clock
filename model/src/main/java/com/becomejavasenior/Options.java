@@ -1,11 +1,9 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Options implements Serializable, Extendable{
+public class Options implements Extendable{
 
     private int id;
     private TimeZone timeZone;

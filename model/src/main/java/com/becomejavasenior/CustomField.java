@@ -1,12 +1,11 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomField extends Attacher implements Serializable {
+public class CustomField extends Attacher implements Attachable {
 
     private CustomFieldType fieldType;
     private CustomFieldValue fieldValue;

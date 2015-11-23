@@ -1,11 +1,9 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomFieldType implements Serializable, Extendable {
+public class CustomFieldType implements Extendable {
 
     private int id;
     private String name;

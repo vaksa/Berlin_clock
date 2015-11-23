@@ -1,22 +1,25 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Deal extends Extender implements Serializable, Extendable {
+public class Deal extends Extender implements Extendable {
 
     private GregorianCalendar date;
     private String name;
     private User owner;
     private Company company;
+    private Currency currency;
     private double budget;
     private DealStatus status;
     private DealType type;
     private Set<DealContact> dealContacts;
+    private Set<Attachment> attachments;
+    private Set<Comment> comments;
+    private Set<Tag> tags;
 
     public Deal() {
     }
@@ -69,6 +72,14 @@ public class Deal extends Extender implements Serializable, Extendable {
         this.budget = budget;
     }
 
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
     public DealStatus getStatus() {
         return status;
     }
@@ -93,6 +104,30 @@ public class Deal extends Extender implements Serializable, Extendable {
         this.dealContacts = dealContacts;
     }
 
+    public Set<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(Set<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,8 +138,6 @@ public class Deal extends Extender implements Serializable, Extendable {
         if (getId() != deal.getId()) return false;
         if (Double.compare(deal.getBudget(), getBudget()) != 0) return false;
         if (getDate() != null ? !getDate().equals(deal.getDate()) : deal.getDate() != null) return false;
-        if (getName() != null ? !getName().equals(deal.getName()) : deal.getName() != null) return false;
-        if (getOwner() != null ? !getOwner().equals(deal.getOwner()) : deal.getOwner() != null) return false;
         return !(getCompany() != null ? !getCompany().equals(deal.getCompany()) : deal.getCompany() != null);
 
     }
@@ -115,8 +148,6 @@ public class Deal extends Extender implements Serializable, Extendable {
         long temp;
         result = getId();
         result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
         result = 31 * result + (getCompany() != null ? getCompany().hashCode() : 0);
         temp = Double.doubleToLongBits(getBudget());
         result = 31 * result + (int) (temp ^ (temp >>> 32));

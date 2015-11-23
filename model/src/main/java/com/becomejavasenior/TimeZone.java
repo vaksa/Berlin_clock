@@ -1,12 +1,9 @@
 package com.becomejavasenior;
 
-import java.awt.*;
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 19.11.2015.
  */
-public class TimeZone implements Serializable, Extendable {
+public class TimeZone implements Extendable {
 
     private int id;
     private String name;

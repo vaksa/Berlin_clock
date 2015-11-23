@@ -1,12 +1,11 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class ConnectionHistory implements Serializable, Extendable {
+public class ConnectionHistory implements Extendable {
 
     private int id;
     private GregorianCalendar date;

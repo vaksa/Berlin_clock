@@ -1,11 +1,9 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class DealType implements Serializable, Extendable {
+public class DealType implements Extendable {
 
     private int id;
     private String name;

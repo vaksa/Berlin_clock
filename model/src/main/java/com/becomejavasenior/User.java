@@ -1,13 +1,13 @@
 package com.becomejavasenior;
 
 
-import java.io.Serializable;
-
 /**
  * @author Orlov Vladislav on 15.11.2015.
  */
-public class User extends Person implements Serializable, Extendable{
+public class User extends Extender implements Extendable{
 
+    private String firstName;
+    private String lastName;
     private String login;
     private String password;
     private String email;
@@ -28,24 +28,20 @@ public class User extends Person implements Serializable, Extendable{
         super.setId(id);
     }
 
-    @Override
     public String getFirstName() {
-        return super.getFirstName();
+        return firstName;
     }
 
-    @Override
     public void setFirstName(String firstName) {
-        super.setFirstName(firstName);
+        this.firstName = firstName;
     }
 
-    @Override
     public String getLastName() {
-        return super.getLastName();
+        return lastName;
     }
 
-    @Override
     public void setLastName(String lastName) {
-        super.setFirstName(lastName);
+        this.lastName = lastName;
     }
 
     public String getLogin() {

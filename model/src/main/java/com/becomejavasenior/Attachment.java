@@ -2,6 +2,7 @@ package com.becomejavasenior;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.Set;
 
 /**
@@ -10,6 +11,7 @@ import java.util.Set;
 public class Attachment extends Attacher implements Serializable, Attachable {
 
     private User owner;
+    private GregorianCalendar date;
     private String pathToFile;
     private byte[] data;
 
@@ -18,7 +20,7 @@ public class Attachment extends Attacher implements Serializable, Attachable {
 
     @Override
     public Set<Attachable> getAttachedObjects(Extendable extObject) {
-        return Attacher.getAttachedSubclassObjects(extObject, Attachment.class);
+        return null;
     }
 
     @Override
@@ -39,6 +41,14 @@ public class Attachment extends Attacher implements Serializable, Attachable {
     @Override
     public void setAttachedTo(Extendable attachedTo) {
         super.setAttachedTo(attachedTo);
+    }
+
+    public GregorianCalendar getDate() {
+        return date;
+    }
+
+    public void setDate(GregorianCalendar date) {
+        this.date = date;
     }
 
     public User getOwner() {

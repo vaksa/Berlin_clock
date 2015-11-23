@@ -1,12 +1,11 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Tag extends Attacher implements Serializable, Attachable {
+public class Tag extends Attacher implements Attachable {
 
     private String name;
     private User owner;
@@ -16,7 +15,7 @@ public class Tag extends Attacher implements Serializable, Attachable {
 
     @Override
     public Set<Attachable> getAttachedObjects(Extendable extObject) {
-        return Attacher.getAttachedSubclassObjects(extObject, Tag.class);
+        return null;
     }
 
 

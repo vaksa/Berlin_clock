@@ -7,13 +7,18 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Contact extends Person implements Serializable, Communicable {
+public class Contact extends Extender implements Serializable, Communicable {
 
+    private String firstName;
+    private String lastName;
     private Position position;
     private User owner;
     private GregorianCalendar dateOfCreate;
     private Company company;
     private Set<Communication> communications;
+    private Set<Attachment> attachments;
+    private Set<Comment> comments;
+    private Set<Tag> tags;
 
     public Contact() {
     }
@@ -28,24 +33,20 @@ public class Contact extends Person implements Serializable, Communicable {
         super.setId(id);
     }
 
-    @Override
     public String getFirstName() {
-        return super.getFirstName();
+        return firstName;
     }
 
-    @Override
     public void setFirstName(String firstName) {
-        super.setFirstName(firstName);
+        this.firstName = firstName;
     }
 
-    @Override
     public String getLastName() {
-        return super.getLastName();
+        return lastName;
     }
 
-    @Override
     public void setLastName(String lastName) {
-        super.setFirstName(lastName);
+        this.lastName = lastName;
     }
 
     public Position getPosition() {
@@ -82,6 +83,30 @@ public class Contact extends Person implements Serializable, Communicable {
 
     public void setCommunications(Set<Communication> communications) {
         this.communications = communications;
+    }
+
+    public Set<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(Set<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 
     @Override

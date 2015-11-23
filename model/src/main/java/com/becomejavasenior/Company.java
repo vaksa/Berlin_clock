@@ -1,17 +1,19 @@
 package com.becomejavasenior;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Company extends Extender implements Serializable, Communicable {
+public class Company extends Extender implements Communicable, Extendable {
 
     private String name;
     private User owner;
     private Set<Contact> contacts;
     private Set<Communication> communications;
+    private Set<Attachment> attachments;
+    private Set<Comment> comments;
+    private Set<Tag> tags;
 
     public Company() {
     }
@@ -50,6 +52,30 @@ public class Company extends Extender implements Serializable, Communicable {
 
     public void setId(int id) {
         super.setId(id);
+    }
+
+    public Set<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(Set<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 
     @Override

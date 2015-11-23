@@ -1,24 +1,15 @@
 package com.becomejavasenior;
 
-import java.util.Map;
-import java.util.Set;
-
 /**
  * @author Orlov Vladislav on 18.11.2015.
+ *
  */
 abstract public class Attacher implements Attachable{
 
     private int id;
     private Extendable attachedTo;
-    /*private static Map<Extendable, Map<Class, Set<Attachable>>> linksToExtendableObject;
-
-    private static Map<Class, Map<Extendable, Attachable>> linksToExtendableObject;*/
 
     public Attacher() {
-    }
-
-    public static Set<Attachable> getAttachedSubclassObjects(Extendable extObject, Class attachableClass){
-        return null;//linksToExtendableObject.get(extObject).get(attachableClass);
     }
 
     public int getId() {

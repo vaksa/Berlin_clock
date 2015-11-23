@@ -10,10 +10,10 @@ public class Role implements Serializable, Extendable {
 
     private int id;
     private String name;
-    private Set<Object> permissions;
+    private Set<Permition> permissions;
     private RoleType roleType;
 
-    enum RoleType{ADMIN, SUBSCRIBER}
+    enum RoleType{ADMIN, MANAGER, ACCOUNTANT}
 
     public int getId() {
         return id;
@@ -31,11 +31,11 @@ public class Role implements Serializable, Extendable {
         this.name = name;
     }
 
-    public Set<Object> getPermissions() {
+    public Set<Permition> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(Set<Object> permissions) {
+    public void setPermissions(Set<Permition> permissions) {
         this.permissions = permissions;
     }
 
