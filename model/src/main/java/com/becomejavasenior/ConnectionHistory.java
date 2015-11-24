@@ -17,6 +17,7 @@ public class ConnectionHistory implements Serializable {
     public ConnectionHistory() {
     }
 
+
     public int getId() {
         return id;
     }

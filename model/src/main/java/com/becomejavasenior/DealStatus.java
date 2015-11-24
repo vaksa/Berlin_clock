@@ -14,6 +14,7 @@ public class DealStatus implements Serializable {
     public DealStatus() {
     }
 
+
     public int getId() {
         return id;
     }

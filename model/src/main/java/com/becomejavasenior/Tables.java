@@ -5,4 +5,5 @@ package com.becomejavasenior;
  */
 public enum Tables {
     COMMUNICATIONS, COMPANIES, CONTACTS, DEALS, TASKS
+
 }

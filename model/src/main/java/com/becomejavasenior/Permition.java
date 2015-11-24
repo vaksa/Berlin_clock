@@ -18,6 +18,7 @@ public class Permition implements Serializable{
     public Permition() {
     }
 
+
     public boolean isCanRead() {
         return canRead;
     }

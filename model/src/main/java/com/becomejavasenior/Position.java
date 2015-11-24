@@ -13,6 +13,7 @@ public class Position implements Serializable {
     public Position() {
     }
 
+
     public int getId() {
         return id;
     }

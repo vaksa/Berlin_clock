@@ -15,6 +15,9 @@ public class Role implements Serializable {
 
     enum RoleType{ADMIN, MANAGER, ACCOUNTANT}
 
+    public Role() {
+    }
+
     public int getId() {
         return id;
     }

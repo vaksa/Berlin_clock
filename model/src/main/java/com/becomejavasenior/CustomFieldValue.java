@@ -11,6 +11,9 @@ public class CustomFieldValue<T> implements Serializable {
     private int record_id;
     private T value;
 
+    public CustomFieldValue() {
+    }
+
     public int getId() {
         return id;
     }

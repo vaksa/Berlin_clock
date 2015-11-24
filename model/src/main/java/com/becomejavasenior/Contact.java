@@ -26,6 +26,7 @@ public class Contact implements Communicable, Serializable {
 
     }
 
+
     @Override
     public void setCommunications(Set<Communication> communications) {
         this.communications = communications;

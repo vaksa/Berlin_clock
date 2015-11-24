@@ -27,6 +27,7 @@ public class Deal implements Serializable {
     public Deal() {
     }
 
+
     public int getId() {
         return id;
     }
