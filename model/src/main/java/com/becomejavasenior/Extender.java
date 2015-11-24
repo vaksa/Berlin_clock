@@ -9,10 +9,10 @@ import java.util.Set;
 abstract public class Extender implements Extendable {
 
     private int id;
-    private Set<Attachable> attachedObjectsMap;
+    private Set<Attachable> attachedCustomFields;
 
     public Extender() {
-        attachedObjectsMap = new HashSet<>();
+        attachedCustomFields = new HashSet<>();
     }
 
     public int getId() {
@@ -23,12 +23,12 @@ abstract public class Extender implements Extendable {
         this.id = id;
     }
 
-    public Set<Attachable> getAttachedObjectsMap() {
-        return attachedObjectsMap;
+    public Set<Attachable> getAttachedCustomFields() {
+        return attachedCustomFields;
     }
 
-    public void setAttachedObjectsMap(Set<Attachable> attachedObjectsMap) {
-        this.attachedObjectsMap = attachedObjectsMap;
+    public void setAttachedCustomFields(Set<Attachable> attachedCustomFields) {
+        this.attachedCustomFields = attachedCustomFields;
     }
 
    @Override
