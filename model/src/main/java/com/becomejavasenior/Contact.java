@@ -7,8 +7,9 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Contact extends Extender implements Serializable, Communicable {
+public class Contact implements Communicable, Serializable {
 
+    private int id;
     private String firstName;
     private String lastName;
     private Position position;
@@ -19,18 +20,28 @@ public class Contact extends Extender implements Serializable, Communicable {
     private Set<Attachment> attachments;
     private Set<Comment> comments;
     private Set<Tag> tags;
+    private Set<CustomField> customFields;
 
     public Contact() {
+
     }
 
     @Override
+    public void setCommunications(Set<Communication> communications) {
+        this.communications = communications;
+    }
+
+    @Override
+    public Set<Communication> getCommunications() {
+        return communications;
+    }
+
     public int getId() {
-        return super.getId();
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        super.setId(id);
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -81,10 +92,6 @@ public class Contact extends Extender implements Serializable, Communicable {
         this.company = company;
     }
 
-    public void setCommunications(Set<Communication> communications) {
-        this.communications = communications;
-    }
-
     public Set<Attachment> getAttachments() {
         return attachments;
     }
@@ -109,6 +116,14 @@ public class Contact extends Extender implements Serializable, Communicable {
         this.tags = tags;
     }
 
+    public Set<CustomField> getCustomFields() {
+        return customFields;
+    }
+
+    public void setCustomFields(Set<CustomField> customFields) {
+        this.customFields = customFields;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,30 +131,22 @@ public class Contact extends Extender implements Serializable, Communicable {
 
         Contact contact = (Contact) o;
 
-        if (!super.equals(o)) return false;
-        if (getPosition() != null ? !getPosition().equals(contact.getPosition()) : contact.getPosition() != null)
+        if (getId() != contact.getId()) return false;
+        if (getFirstName() != null ? !getFirstName().equals(contact.getFirstName()) : contact.getFirstName() != null)
             return false;
-        if (getOwner() != null ? !getOwner().equals(contact.getOwner()) : contact.getOwner() != null) return false;
-        if (getDateOfCreate() != null ? !getDateOfCreate().equals(contact.getDateOfCreate()) : contact.getDateOfCreate() != null)
+        if (getLastName() != null ? !getLastName().equals(contact.getLastName()) : contact.getLastName() != null)
             return false;
-        return !(getCompany() != null ? !getCompany().equals(contact.getCompany()) : contact.getCompany() != null);
+        return !(getDateOfCreate() != null ? !getDateOfCreate().equals(contact.getDateOfCreate()) : contact.getDateOfCreate() != null);
 
     }
 
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + (super.hashCode());
-        result = 31 * result + (getPosition() != null ? getPosition().hashCode() : 0);
-        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
         result = 31 * result + (getDateOfCreate() != null ? getDateOfCreate().hashCode() : 0);
-        result = 31 * result + (getCompany() != null ? getCompany().hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public Set<Communication> getCommunications() {
-        return null;
     }
 
     @Override

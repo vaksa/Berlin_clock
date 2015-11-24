@@ -1,9 +1,11 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class TaskType implements Extendable {
+public class TaskType implements Serializable {
 
     private int id;
     private String name;
@@ -44,5 +46,10 @@ public class TaskType implements Extendable {
         int result = getId();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

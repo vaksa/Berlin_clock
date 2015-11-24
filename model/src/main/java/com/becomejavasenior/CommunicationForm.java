@@ -1,9 +1,11 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CommunicationForm implements Extendable {
+public class CommunicationForm implements Serializable {
 
     private int id;
     private String name;
@@ -25,6 +27,14 @@ public class CommunicationForm implements Extendable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CommunicationType getCommunicationType() {
+        return communicationType;
+    }
+
+    public void setCommunicationType(CommunicationType communicationType) {
+        this.communicationType = communicationType;
     }
 
     @Override

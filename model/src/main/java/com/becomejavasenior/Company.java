@@ -1,12 +1,14 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Company extends Extender implements Communicable, Extendable {
+public class Company implements Communicable, Serializable {
 
+    private int id;
     private String name;
     private User owner;
     private Set<Contact> contacts;
@@ -14,8 +16,27 @@ public class Company extends Extender implements Communicable, Extendable {
     private Set<Attachment> attachments;
     private Set<Comment> comments;
     private Set<Tag> tags;
+    private Set<CustomField> customFields;
 
     public Company() {
+    }
+
+    @Override
+    public void setCommunications(Set<Communication> communications) {
+        this.communications = communications;
+    }
+
+    @Override
+    public Set<Communication> getCommunications() {
+        return communications;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -26,18 +47,6 @@ public class Company extends Extender implements Communicable, Extendable {
         this.name = name;
     }
 
-    public Set<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    public void setCommunications(Set<Communication> communications) {
-        this.communications = communications;
-    }
-
     public User getOwner() {
         return owner;
     }
@@ -46,12 +55,12 @@ public class Company extends Extender implements Communicable, Extendable {
         this.owner = owner;
     }
 
-    public int getId() {
-        return super.getId();
+    public Set<Contact> getContacts() {
+        return contacts;
     }
 
-    public void setId(int id) {
-        super.setId(id);
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     public Set<Attachment> getAttachments() {
@@ -78,16 +87,12 @@ public class Company extends Extender implements Communicable, Extendable {
         this.tags = tags;
     }
 
-    @Override
-    public Set<Communication> getCommunications() {
-        return null;
+    public Set<CustomField> getCustomFields() {
+        return customFields;
     }
 
-    @Override
-    public String toString() {
-        return "Company{" +
-                "name='" + name + '\'' +
-                '}';
+    public void setCustomFields(Set<CustomField> customFields) {
+        this.customFields = customFields;
     }
 
     @Override
@@ -110,4 +115,6 @@ public class Company extends Extender implements Communicable, Extendable {
         result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
         return result;
     }
+
+
 }

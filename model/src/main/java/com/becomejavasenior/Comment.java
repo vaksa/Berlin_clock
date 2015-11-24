@@ -1,59 +1,44 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
-import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Comment extends Attacher implements Attachable {
+public class Comment implements Serializable {
 
-    private Comment comment;
+    private int id;
+    private Tables tableName;
+    private String text;
     private User owner;
     private GregorianCalendar date;
 
     public Comment() {
     }
 
-    @Override
-    public Set<Attachable> getAttachedObjects(Extendable extObject) {
-        return null;
-    }
-
-    @Override
     public int getId() {
-        return super.getId();
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        super.setId(id);
+        this.id = id;
     }
 
-    @Override
-    public Extendable getAttachedTo() {
-        return super.getAttachedTo();
+    public Tables getTableName() {
+        return tableName;
     }
 
-    @Override
-    public void setAttachedTo(Extendable attachedTo) {
-        super.setAttachedTo(attachedTo);
+    public void setTableName(Tables tableName) {
+        this.tableName = tableName;
     }
 
-    public GregorianCalendar getDate() {
-        return date;
+    public String getText() {
+        return text;
     }
 
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
-    }
-
-    public Comment getComment() {
-        return comment;
-    }
-
-    public void setComment(Comment comment) {
-        this.comment = comment;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public User getOwner() {
@@ -64,26 +49,30 @@ public class Comment extends Attacher implements Attachable {
         this.owner = owner;
     }
 
+    public GregorianCalendar getDate() {
+        return date;
+    }
+
+    public void setDate(GregorianCalendar date) {
+        this.date = date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Comment)) return false;
 
-        Comment comment1 = (Comment) o;
+        Comment comment = (Comment) o;
 
-        if(!super.equals(o)) return false;
-
-        if (getComment() != null ? !getComment().equals(comment1.getComment()) : comment1.getComment() != null)
-            return false;
-        return !(getOwner() != null ? !getOwner().equals(comment1.getOwner()) : comment1.getOwner() != null);
+        if (getId() != comment.getId()) return false;
+        return getTableName() == comment.getTableName();
 
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (getComment() != null ? getComment().hashCode() : 0);
-        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
+        int result = getId();
+        result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
         return result;
     }
 }

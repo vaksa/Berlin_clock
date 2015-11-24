@@ -1,42 +1,34 @@
 package com.becomejavasenior;
 
-import java.util.Set;
+import java.io.Serializable;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Tag extends Attacher implements Attachable {
+public class Tag implements Serializable {
 
+    private int id;
+    private Tables tableName;
     private String name;
     private User owner;
 
     public Tag() {
     }
 
-    @Override
-    public Set<Attachable> getAttachedObjects(Extendable extObject) {
-        return null;
-    }
-
-
-    @Override
     public int getId() {
-        return super.getId();
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        super.setId(id);
+        this.id = id;
     }
 
-    @Override
-    public Extendable getAttachedTo() {
-        return super.getAttachedTo();
+    public Tables getTableName() {
+        return tableName;
     }
 
-    @Override
-    public void setAttachedTo(Extendable attachedTo) {
-        super.setAttachedTo(attachedTo);
+    public void setTableName(Tables tableName) {
+        this.tableName = tableName;
     }
 
     public String getName() {
@@ -62,18 +54,17 @@ public class Tag extends Attacher implements Attachable {
 
         Tag tag = (Tag) o;
 
-        if(!super.equals(o)) return false;
-
-        if (getName() != null ? !getName().equals(tag.getName()) : tag.getName() != null) return false;
-        return !(getOwner() != null ? !getOwner().equals(tag.getOwner()) : tag.getOwner() != null);
+        if (getId() != tag.getId()) return false;
+        if (getTableName() != tag.getTableName()) return false;
+        return !(getName() != null ? !getName().equals(tag.getName()) : tag.getName() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
+        int result = getId();
+        result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
         return result;
     }
 }

@@ -1,13 +1,15 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.Set;
 
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Task extends Extender implements Extendable{
+public class Task implements Serializable{
 
+    private int id;
     private GregorianCalendar date;
     private String subject;
     private User owner;
@@ -19,16 +21,17 @@ public class Task extends Extender implements Extendable{
     private Set<Attachment> attachments;
     private Set<Comment> comments;
     private Set<Tag> tags;
+    private Set<CustomField> customFields;
 
     public Task() {
     }
 
     public int getId() {
-        return super.getId();
+        return id;
     }
 
     public void setId(int id) {
-        super.setId(id);
+        this.id = id;
     }
 
     public GregorianCalendar getDate() {
@@ -119,6 +122,14 @@ public class Task extends Extender implements Extendable{
         this.tags = tags;
     }
 
+    public Set<CustomField> getCustomFields() {
+        return customFields;
+    }
+
+    public void setCustomFields(Set<CustomField> customFields) {
+        this.customFields = customFields;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -128,8 +139,7 @@ public class Task extends Extender implements Extendable{
 
         if (getId() != task.getId()) return false;
         if (getDate() != null ? !getDate().equals(task.getDate()) : task.getDate() != null) return false;
-
-        return !(getType() != null ? !getType().equals(task.getType()) : task.getType() != null);
+        return !(getSubject() != null ? !getSubject().equals(task.getSubject()) : task.getSubject() != null);
 
     }
 
@@ -137,7 +147,7 @@ public class Task extends Extender implements Extendable{
     public int hashCode() {
         int result = getId();
         result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
-
+        result = 31 * result + (getSubject() != null ? getSubject().hashCode() : 0);
         return result;
     }
 }

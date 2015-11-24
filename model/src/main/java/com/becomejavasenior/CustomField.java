@@ -1,41 +1,34 @@
 package com.becomejavasenior;
 
-import java.util.Set;
+import java.io.Serializable;
 
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomField extends Attacher implements Attachable {
+public class CustomField implements Serializable {
 
+    private int id;
+    private Tables tableName;
     private CustomFieldType fieldType;
     private CustomFieldValue fieldValue;
 
     public CustomField() {
     }
 
-    @Override
-    public Set<Attachable> getAttachedObjects(Extendable extObject) {
-        return null;
-    }
-
-    @Override
     public int getId() {
-        return super.getId();
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        super.setId(id);
+        this.id = id;
     }
 
-    @Override
-    public Extendable getAttachedTo() {
-        return super.getAttachedTo();
+    public Tables getTableName() {
+        return tableName;
     }
 
-    @Override
-    public void setAttachedTo(Extendable attachedTo) {
-        super.setAttachedTo(attachedTo);
+    public void setTableName(Tables tableName) {
+        this.tableName = tableName;
     }
 
     public CustomFieldType getFieldType() {
@@ -61,19 +54,15 @@ public class CustomField extends Attacher implements Attachable {
 
         CustomField that = (CustomField) o;
 
-        if(!super.equals(o)) return false;
-
-        if (getFieldType() != null ? !getFieldType().equals(that.getFieldType()) : that.getFieldType() != null)
-            return false;
-        return !(getFieldValue() != null ? !getFieldValue().equals(that.getFieldValue()) : that.getFieldValue() != null);
+        if (getId() != that.getId()) return false;
+        return getTableName() == that.getTableName();
 
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result +(getFieldType() != null ? getFieldType().hashCode() : 0);
-        result = 31 * result + (getFieldValue() != null ? getFieldValue().hashCode() : 0);
+        int result = getId();
+        result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
         return result;
     }
 }

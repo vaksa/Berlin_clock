@@ -1,9 +1,11 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class DealContact implements Extendable {
+public class DealContact implements Serializable {
 
     private int id;
     private Deal deal;

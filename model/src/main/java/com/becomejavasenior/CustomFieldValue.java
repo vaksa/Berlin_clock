@@ -1,13 +1,15 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomFieldValue<T> implements Extendable {
+public class CustomFieldValue<T> implements Serializable {
 
     private int id;
+    private int record_id;
     private T value;
-    private String stringValue;
 
     public int getId() {
         return id;
@@ -25,12 +27,12 @@ public class CustomFieldValue<T> implements Extendable {
         this.value = value;
     }
 
-    public String getStringValue() {
-        return stringValue;
+    public int getRecord_id() {
+        return record_id;
     }
 
-    public void setStringValue(String stringValue) {
-        this.stringValue = stringValue;
+    public void setRecord_id(int record_id) {
+        this.record_id = record_id;
     }
 
     @Override
@@ -38,17 +40,17 @@ public class CustomFieldValue<T> implements Extendable {
         if (this == o) return true;
         if (!(o instanceof CustomFieldValue)) return false;
 
-        CustomFieldValue that = (CustomFieldValue) o;
+        CustomFieldValue<?> that = (CustomFieldValue<?>) o;
 
         if (getId() != that.getId()) return false;
-        return !(getValue() != null ? !getValue().equals(that.getValue()) : that.getValue() != null);
+        return getRecord_id() == that.getRecord_id();
 
     }
 
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+        result = 31 * result + getRecord_id();
         return result;
     }
 }

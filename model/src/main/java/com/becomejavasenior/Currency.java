@@ -1,9 +1,11 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 17.11.2015.
  */
-public class Currency implements Extendable {
+public class Currency implements Serializable {
 
     private int id;
     private String code;

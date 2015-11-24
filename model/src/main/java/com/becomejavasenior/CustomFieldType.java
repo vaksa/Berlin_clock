@@ -1,21 +1,26 @@
 package com.becomejavasenior;
 
+import java.io.Serializable;
+
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class CustomFieldType implements Extendable {
+public class CustomFieldType implements Serializable {
 
-    private int id;
+    private CustomField customField;
     private String name;
-    private Class type;
-    private String text;
+    private String smplType;
+    private Tables refType;
 
-    public int getId() {
-        return id;
+    public CustomFieldType() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public CustomField getCustomField() {
+        return customField;
+    }
+
+    public void setCustomField(CustomField customField) {
+        this.customField = customField;
     }
 
     public String getName() {
@@ -26,20 +31,20 @@ public class CustomFieldType implements Extendable {
         this.name = name;
     }
 
-    public Class getType() {
-        return type;
+    public String getSmplType() {
+        return smplType;
     }
 
-    public void setType(Class type) {
-        this.type = type;
+    public void setSmplType(String smplType) {
+        this.smplType = smplType;
     }
 
-    public String getText() {
-        return text;
+    public Tables getRefType() {
+        return refType;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setRefType(Tables refType) {
+        this.refType = refType;
     }
 
     @Override
@@ -49,17 +54,16 @@ public class CustomFieldType implements Extendable {
 
         CustomFieldType that = (CustomFieldType) o;
 
-        if (getId() != that.getId()) return false;
-        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        return !(getType() != null ? !getType().equals(that.getType()) : that.getType() != null);
+        if (getCustomField() != null ? !getCustomField().equals(that.getCustomField()) : that.getCustomField() != null)
+            return false;
+        return !(getName() != null ? !getName().equals(that.getName()) : that.getName() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = getCustomField() != null ? getCustomField().hashCode() : 0;
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
         return result;
     }
 }

@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Role implements Serializable, Extendable {
+public class Role implements Serializable {
 
     private int id;
     private String name;
@@ -46,7 +46,6 @@ public class Role implements Serializable, Extendable {
     public void setRoleType(RoleType roleType) {
         this.roleType = roleType;
     }
-
 
     @Override
     public boolean equals(Object o) {
