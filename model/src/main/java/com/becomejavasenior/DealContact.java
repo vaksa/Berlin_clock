@@ -15,7 +15,6 @@ public class DealContact implements Serializable {
     public DealContact() {
     }
 
-
     public int getId() {
         return id;
     }

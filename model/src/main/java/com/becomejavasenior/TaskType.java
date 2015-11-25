@@ -13,7 +13,6 @@ public class TaskType implements Serializable {
     public TaskType() {
     }
 
-
     public int getId() {
         return id;
     }

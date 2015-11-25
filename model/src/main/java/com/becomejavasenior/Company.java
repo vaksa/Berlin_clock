@@ -21,13 +21,10 @@ public class Company implements Communicable, Serializable {
     public Company() {
     }
 
-
-    @Override
     public void setCommunications(Set<Communication> communications) {
         this.communications = communications;
     }
 
-    @Override
     public Set<Communication> getCommunications() {
         return communications;
     }

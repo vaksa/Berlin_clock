@@ -13,7 +13,6 @@ public class DealType implements Serializable {
     public DealType() {
     }
 
-
     public int getId() {
         return id;
     }

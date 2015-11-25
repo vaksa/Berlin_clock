@@ -12,6 +12,7 @@ public class Currency implements Serializable {
     private String name;
 
     public Currency() {
+
     }
 
     public int getId() {

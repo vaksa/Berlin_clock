@@ -18,6 +18,7 @@ public class User implements Serializable{
     private String whiteListIP;
 
     public User() {
+
     }
 
     public int getId() {

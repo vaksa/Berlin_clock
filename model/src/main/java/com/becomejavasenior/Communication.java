@@ -12,7 +12,6 @@ public class Communication implements Serializable{
     private CommunicationForm form;
     private String value;
 
-
     public Communication() {
     }
 

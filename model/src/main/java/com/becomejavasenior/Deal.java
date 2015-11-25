@@ -25,6 +25,7 @@ public class Deal implements Serializable {
     private Set<CustomField> customFields;
 
     public Deal() {
+
     }
 
 

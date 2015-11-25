@@ -11,5 +11,4 @@ public interface Communicable {
 
     void setCommunications(Set<Communication> communications);
 
-
 }

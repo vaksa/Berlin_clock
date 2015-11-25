@@ -12,8 +12,8 @@ public class Options implements Serializable{
     private Currency currency;
 
     public Options() {
-    }
 
+    }
 
     public int getId() {
         return id;

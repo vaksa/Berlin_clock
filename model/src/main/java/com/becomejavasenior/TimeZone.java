@@ -14,7 +14,6 @@ public class TimeZone implements Serializable {
     public TimeZone() {
     }
 
-
     public int getId() {
         return id;
     }

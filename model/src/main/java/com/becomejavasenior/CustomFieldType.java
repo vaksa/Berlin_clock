@@ -15,7 +15,6 @@ public class CustomFieldType implements Serializable {
     public CustomFieldType() {
     }
 
-
     public CustomField getCustomField() {
         return customField;
     }

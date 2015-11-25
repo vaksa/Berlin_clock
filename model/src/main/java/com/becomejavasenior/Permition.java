@@ -16,8 +16,8 @@ public class Permition implements Serializable{
     enum tables{COMPANY, DEAL, TASK, CONTACT}
 
     public Permition() {
-    }
 
+    }
 
     public boolean isCanRead() {
         return canRead;

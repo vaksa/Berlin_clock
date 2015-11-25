@@ -14,7 +14,6 @@ public class Comment implements Serializable {
     private User owner;
     private GregorianCalendar date;
 
-
     public Comment() {
     }
 

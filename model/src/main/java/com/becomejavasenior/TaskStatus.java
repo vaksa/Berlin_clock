@@ -13,7 +13,6 @@ public class TaskStatus implements Serializable {
     public TaskStatus() {
     }
 
-
     public int getId() {
         return id;
     }

@@ -12,6 +12,7 @@ public class CustomFieldValue<T> implements Serializable {
     private T value;
 
     public CustomFieldValue() {
+
     }
 
     public int getId() {

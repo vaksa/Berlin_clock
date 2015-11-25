@@ -15,7 +15,6 @@ public class Tag implements Serializable {
     public Tag() {
     }
 
-
     public int getId() {
         return id;
     }

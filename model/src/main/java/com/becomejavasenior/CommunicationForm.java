@@ -11,7 +11,6 @@ public class CommunicationForm implements Serializable {
     private String name;
     private CommunicationType communicationType;
 
-
     enum CommunicationType{ADDRESS, PHONE, FAX, CELL_PHONE, EMAIL, SOCIAL_NETWORK, INTERNET_COMMUNICATION, SITE}
 
     public int getId() {

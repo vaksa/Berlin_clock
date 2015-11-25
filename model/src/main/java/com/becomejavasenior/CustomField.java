@@ -15,7 +15,6 @@ public class CustomField implements Serializable {
     public CustomField() {
     }
 
-
     public int getId() {
         return id;
     }
