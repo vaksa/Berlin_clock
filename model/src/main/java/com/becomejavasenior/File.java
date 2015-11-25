@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 /**
  * @author Orlov Vladislav on 16.11.2015.
  */
-public class Attachment implements Serializable {
+public class File implements Serializable {
 
     private int id;
     private Tables tableName;
@@ -15,7 +15,7 @@ public class Attachment implements Serializable {
     private String pathToFile;
     private byte[] data;
 
-    public Attachment() {
+    public File() {
 
     }
 
@@ -70,9 +70,9 @@ public class Attachment implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Attachment)) return false;
+        if (!(o instanceof File)) return false;
 
-        Attachment that = (Attachment) o;
+        File that = (File) o;
 
         if (getId() != that.getId()) return false;
         if (getTableName() != that.getTableName()) return false;

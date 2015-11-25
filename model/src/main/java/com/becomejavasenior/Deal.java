@@ -19,7 +19,7 @@ public class Deal implements Serializable {
     private DealStatus status;
     private DealType type;
     private Set<DealContact> dealContacts;
-    private Set<Attachment> attachments;
+    private Set<File> files;
     private Set<Comment> comments;
     private Set<Tag> tags;
     private Set<CustomField> customFields;
@@ -109,12 +109,12 @@ public class Deal implements Serializable {
         this.dealContacts = dealContacts;
     }
 
-    public Set<Attachment> getAttachments() {
-        return attachments;
+    public Set<File> getFiles() {
+        return files;
     }
 
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
+    public void setFiles(Set<File> files) {
+        this.files = files;
     }
 
     public Set<Comment> getComments() {

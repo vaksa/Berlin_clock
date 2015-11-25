@@ -13,7 +13,7 @@ public class Company implements Communicable, Serializable {
     private User owner;
     private Set<Contact> contacts;
     private Set<Communication> communications;
-    private Set<Attachment> attachments;
+    private Set<File> files;
     private Set<Comment> comments;
     private Set<Tag> tags;
     private Set<CustomField> customFields;
@@ -61,12 +61,12 @@ public class Company implements Communicable, Serializable {
         this.contacts = contacts;
     }
 
-    public Set<Attachment> getAttachments() {
-        return attachments;
+    public Set<File> getFiles() {
+        return files;
     }
 
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
+    public void setFiles(Set<File> files) {
+        this.files = files;
     }
 
     public Set<Comment> getComments() {

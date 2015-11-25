@@ -18,7 +18,7 @@ public class Task implements Serializable{
     private Contact contact;
     private TaskStatus status;
     private TaskType type;
-    private Set<Attachment> attachments;
+    private Set<File> files;
     private Set<Comment> comments;
     private Set<Tag> tags;
     private Set<CustomField> customFields;
@@ -98,12 +98,12 @@ public class Task implements Serializable{
         this.type = type;
     }
 
-    public Set<Attachment> getAttachments() {
-        return attachments;
+    public Set<File> getFiles() {
+        return files;
     }
 
-    public void setAttachments(Set<Attachment> attachments) {
-        this.attachments = attachments;
+    public void setFiles(Set<File> files) {
+        this.files = files;
     }
 
     public Set<Comment> getComments() {
