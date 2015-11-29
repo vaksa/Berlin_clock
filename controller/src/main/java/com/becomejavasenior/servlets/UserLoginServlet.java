@@ -14,9 +14,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserAuthorizationServlet extends HttpServlet {
+/**
+ * @author Orlov Vladislav on 15.11.2015.
+ */
+public class UserLoginServlet extends HttpServlet {
 
-    private static final Map<String, User> users = new HashMap<>();//User.getValidUsers();
+    private static final Map<String, User> users = new HashMap<>();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

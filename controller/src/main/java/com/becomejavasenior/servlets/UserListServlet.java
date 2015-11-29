@@ -1,8 +1,6 @@
 package com.becomejavasenior.servlets;
 
 
-import com.becomejavasenior.User;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -26,7 +24,8 @@ public class UserListServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
-        session.setAttribute("databaseUsers", User.getValidUsersList());
+
+        //session.setAttribute("databaseUsers", User.getValidUsersList());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("pages/usersList.jsp");
         dispatcher.forward(req, resp);
