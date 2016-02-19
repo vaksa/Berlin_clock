@@ -21,21 +21,20 @@ public class ClockSteps {
 
     private Transfomator t = new Transfomator();
 
-    @Given("Standard clock <time>")
+    @Given("current system time <time>")
     public void givenStandardClockTime(@Named("time") String time) {
         this.standardTime = time;
     }
 
-    @When("Try to transform")
+    @When("user tries to converte current time to 'Berlin' type")
     public void whenTryToTransform() throws ParseException {
         Date date = new SimpleDateFormat("HH:mm:ss").parse(standardTime);
         actualSeconds = t.transformSeconds(date);
         actualHours = t.transformHours(standardTime);
         actualMinutes = t.transformMinutes(date);
-    //    actualResult = actualSeconds + "\n" + actualHours + "\n" + actualMinutes;
     }
 
-    @Then("Show time in the <expSeconds>, <expHours>, <expMinutes>")
+    @Then("current time should be converted to next: <expSeconds>, <expHours>, <expMinutes>")
     public void thenShowTheNewTimeFormat(@Named("expSeconds") String expSeconds,
                                          @Named("expHours") String expHours,
                                          @Named("expMinutes") String expMinutes) {

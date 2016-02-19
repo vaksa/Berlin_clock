@@ -1,14 +1,16 @@
 Meta:
 
 Narrative:
-As a BerlinClock
-I want to transform normal date into "berlin" type
-So that I can achieve a business goal
+In order to know different time between countries
+As a test engineer
+I want to converte current date to 'Berlin' type
 
-Scenario: Transformator
-Given Standard clock <time>
-When Try to transform
-Then Show time in the <expSeconds>, <expHours>, <expMinutes>
+
+Scenario: Verify date transormation process
+
+Given current system time <time>
+When user tries to converte current time to 'Berlin' type
+Then current time should be converted to next: <expSeconds>, <expHours>, <expMinutes>
 
 Examples:
 |time    |expSeconds|expHours|expMinutes|
