@@ -7,5 +7,4 @@ import net.serenitybdd.jbehave.SerenityStory;
  */
 public class BerlinClock extends SerenityStory {
 
-
 }
